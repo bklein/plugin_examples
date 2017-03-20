@@ -10,3 +10,10 @@ add_library(compile_time_pickups
 target_link_libraries(compile_time_pickups
   PUBLIC
     compile_time_pickup_base)
+
+install(
+  TARGETS
+    compile_time_pickup_base
+    compile_time_pickups
+  LIBRARY DESTINATION lib
+)

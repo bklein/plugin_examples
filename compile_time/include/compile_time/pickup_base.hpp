@@ -15,13 +15,8 @@ class Pickup {
   virtual std::string apply() = 0; // Dummy action
 };
 
-class PickupManager {
- public:
-  using Factory = std::function<std::unique_ptr<Pickup>()>;
+using PickupFactory = std::function<std::unique_ptr<Pickup>()>;
 
-  PickupManager() = delete;
-  static const std::map<std::string,Factory>& getFactories();
-  static bool registerFactory(const std::string& name, const Factory& factory);
-};
+const std::map<std::string,PickupFactory>& getFactories();
 
 }  // namespace compile_time

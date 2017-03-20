@@ -3,7 +3,7 @@
 #include <compile_time/pickup_base.hpp>
 
 int main() {
-  const auto& factories = compile_time::PickupManager::getFactories();
+  const auto& factories = compile_time::getFactories();
   std::cout << "Pickups registered: " << factories.size() << std::endl;
   for (const auto& f : factories) {
     const auto& name = f.first;

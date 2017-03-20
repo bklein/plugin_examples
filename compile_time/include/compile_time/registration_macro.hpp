@@ -3,6 +3,8 @@
 
 namespace compile_time {
 
+bool registerFactory(const std::string& name, const PickupFactory& factory);
+
 template <class T>
 struct PickupTraits {
   static std::string name;
@@ -12,7 +14,7 @@ template <class T>
 struct PickupRegistration {
   template <class... Args>
   PickupRegistration(Args&&... args) {
-    PickupManager::registerFactory(
+    registerFactory(
         PickupTraits<T>::name,
         [args...] (void) {
           return std::unique_ptr<Pickup>(new T(args...));

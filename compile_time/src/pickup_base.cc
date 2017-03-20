@@ -1,4 +1,6 @@
 #include "compile_time/pickup_base.hpp"
+#include "compile_time/registration_macro.hpp"
+
 #include <iostream>
 
 namespace compile_time {
@@ -10,12 +12,12 @@ Pickup::~Pickup() {
 }
 
 static
-std::map<std::string, PickupManager::Factory>& get_factories() {
-  static std::map<std::string, PickupManager::Factory> factories;
+std::map<std::string, PickupFactory>& get_factories() {
+  static std::map<std::string, PickupFactory> factories;
   return factories;
 }
 
-bool PickupManager::registerFactory(const std::string& name, const Factory& factory) {
+bool registerFactory(const std::string& name, const PickupFactory& factory) {
   if (!get_factories().insert(std::make_pair(name, factory)).second) {
     std::cerr << "factory already registered: " << name << std::endl;
     return false;
@@ -23,7 +25,7 @@ bool PickupManager::registerFactory(const std::string& name, const Factory& fact
   return true;
 }
 
-const std::map<std::string,PickupManager::Factory>& PickupManager::getFactories() {
+const std::map<std::string,PickupFactory>& getFactories() {
   return get_factories();
 }
 
