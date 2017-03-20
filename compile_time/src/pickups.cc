@@ -1,6 +1,7 @@
-#include "pickup_base.hpp"
+#include "compile_time/pickup_base.hpp"
+#include "compile_time/registration_macro.hpp"
 
-class HealthPickup : public Pickup {
+class HealthPickup : public compile_time::Pickup {
  public:
   std::string apply() override;
 };
@@ -11,7 +12,7 @@ std::string HealthPickup::apply() {
 
 REGISTER_PICKUP("health", HealthPickup)
 
-class OilPickup : public Pickup {
+class OilPickup : public compile_time::Pickup {
   public:
    std::string apply() override;
 };
@@ -22,7 +23,7 @@ std::string OilPickup::apply() {
 
 REGISTER_PICKUP("oil", OilPickup)
 
-class LightningPickup : public Pickup {
+class LightningPickup : public compile_time::Pickup {
  public:
   std::string apply() override;
 };

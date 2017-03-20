@@ -1,5 +1,7 @@
-#include "pickup_base.hpp"
+#include "compile_time/pickup_base.hpp"
 #include <iostream>
+
+namespace compile_time {
 
 Pickup::Pickup() {
 }
@@ -24,3 +26,5 @@ bool PickupManager::registerFactory(const std::string& name, const Factory& fact
 const std::map<std::string,PickupManager::Factory>& PickupManager::getFactories() {
   return get_factories();
 }
+
+}  // namespace compile_time

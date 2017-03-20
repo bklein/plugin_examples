@@ -1,7 +1,7 @@
-add_executable(use_pickups
-  main.cc)
-target_link_libraries(use_pickups
+add_executable(ls_compile_time_pickups
+  ls_compile_time_pickups.cc)
+target_link_libraries(ls_compile_time_pickups
   PRIVATE
-    pickup_base
-    more_pickups
+    compile_time_pickup_base
+    compile_time_pickups
 )

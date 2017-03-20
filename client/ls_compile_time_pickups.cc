@@ -1,9 +1,9 @@
 #include <iostream>
 
-#include "pickup_base.hpp"
+#include <compile_time/pickup_base.hpp>
 
 int main() {
-  const auto& factories = PickupManager::getFactories();
+  const auto& factories = compile_time::PickupManager::getFactories();
   std::cout << "Pickups registered: " << factories.size() << std::endl;
   for (const auto& f : factories) {
     const auto& name = f.first;
