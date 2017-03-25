@@ -5,13 +5,13 @@ target_link_libraries(ls_compile_time_pickups
     compile_time_pickup_base
 )
 
-get_property(AVAILABLE_PLUGINS GLOBAL PROPERTY AVAILABLE_PLUGINS)
+get_property(AVAILABLE_PICKUPS GLOBAL PROPERTY AVAILABLE_PICKUPS)
 message(STATUS "Found pickups:")
-foreach(PLUGIN ${AVAILABLE_PLUGINS})
-  message(STATUS "  ${PLUGIN}")
+foreach(PICKUP ${AVAILABLE_PICKUPS})
+  message(STATUS "  ${PICKUP}")
   target_link_libraries(ls_compile_time_pickups
     PRIVATE
-      ${PLUGIN}
+      ${PICKUP}
   )
 endforeach()
 
